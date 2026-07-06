@@ -1,3 +1,5 @@
+MAX_NUM = 100
+
 N, K = map(int, input().split())
 candy = []
 pos = []
@@ -14,10 +16,11 @@ if K >= 100:
 else:
     max_sum = 0
     # 모든 좌표 값 다 확인 c-k, c+k 가 될 수 있도록 시작 값을 k 값으로 시작.
-    for i in range(K, 200 - K):
+    for i in range(MAX_NUM):
         sum_val = 0
         for j in range(i - K, i + K + 1):
-            sum_val += candy_list[j]
+            if j >= 0 and j <= MAX_NUM:
+                sum_val += candy_list[j]
         max_sum = max(max_sum, sum_val)
     print(max_sum)
 
